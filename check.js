@@ -5,31 +5,20 @@ form.addEventListener('submit', function (event) {
  
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
-  const address = document.getElementById('address').value;
-  const postcode = document.getElementById('postcode').value;
  
-  let isValid = true;
-  let errorMessage = '';
+  form.action += ' ' + name + '&cc=' + email;
+  let formatCheck = containsNum(name);
  
-  if (name === '') {
-    isValid = false;
-    errorMessage += 'Name is required.\n';
-  }
- 
-  if (email === '') {
-    isValid = false;
-    errorMessage += 'Email is required.\n';
-  }
- 
-  const mailto = `mailto:example@example.com?subject=Enquiry}&body=${encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n Address: ${address}\n${postcode}\n\nMessage:\n`
-  )}`;
- 
-  if (!isValid) {
-    alert(errorMessage);
-  } else {
-    form.action = mailto;
+  if (!name == '' && !formatCheck && !email == '') {
+    //document.getElementById('submit-btn').innerHTML = 'Submitted!';
     form.submit();
-    //alert('Form submitted successfully!');
+  } else {
+    //document.getElementById('submit-btn').innerHTML = 'Incorrect Format';
+    console.error('error form not validated :)');
   }
 });
+ 
+function containsNum(str) {
+  return /\d/.test(str);
+}
+ 

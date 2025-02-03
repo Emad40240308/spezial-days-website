@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js"></script>
+    <script type="module" src="check.js"></script>
   </head>
   <body class="container-fluid">
 
@@ -149,8 +150,7 @@
 
       </main>
       <form
-  action="mailto:enquiries@spezialdays.co.uk?subject=Enquiry}&body=${encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n Address: ${address}\n${postcode}\n${city}\nMessage:\n${enquiry}"
+  action="mailto:enquiries@spezialdays.co.uk?subject=Enquiry"
   id="contact-form"
 >
   <div class="form-row" style="margin-top: 5px; margin-bottom: 5px">
@@ -211,7 +211,6 @@
 </form>
 
 </main>   
-<script src="check.js"></script>
 
       <p> </p>
       <p> </p>
